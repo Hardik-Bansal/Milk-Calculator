@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Milk Calendar</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Hardik Bansal">
+	<meta name="description" content="Calculator for usage of Milk">
+  	<meta name="keywords" content="Milk, Calculator, Calendar, Month, usage">
+  	<link rel="stylesheet" type="text/css" href="./style.css">
+  	<link rel="icon" href="./Images/logo2.png">
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<header>
+		<div class="header-bar">
+			<img src="./Images/logo.png" alt="logo">
+			<h1>Milk Calendar</h1>
+			<button>Log In</button>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="#cal-container" class="nav-a">Dashboard</a></li>
+				<li><a href="#total" class="nav-a">Month Total</a></li>
+				<li><a href="#milk-items" class="nav-a">Milky Items</a></li>
+				<li><a href="#order-list" class="nav-a">Order</a></li>
+				<li><a href="#about-us" class="nav-a">About us</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<div class="main-and-footer">
+		<main>
+			<div id="cal-container" class="navigation">
+				<div class="calendar">
+					<div class="month">
+						<i class="fa fa-angle-left prev" aria-hidden="true"></i>
+						<div class="date">
+							<p></p>
+							<p></p>
+						</div>
+						<i class="fa fa-angle-right next" aria-hidden="true"></i>
+					</div>
+					<div class="weekdays">
+			          	<div>Sun</div>
+			          	<div>Mon</div>
+			          	<div>Tue</div>
+			          	<div>Wed</div>
+			          	<div>Thu</div>
+			          	<div>Fri</div>
+			          	<div>Sat</div>
+		        	</div>
+		        	<div class="days"></div>
+				</div>
+				<div class="milk-data">
+					<h3>Fill Data</h3>
+					<p id="current-selected-date">Select Date</p>
+					<div>
+						<label>Enter Cow's Milk Quantity(in Kg): <br/>
+						<input type="number" name="cow" min="0" id="cow" value="0"></label>
+					</div>
+					<div>
+						<label>Enter Buffalo's Milk Quantity(in Kg): <br/>
+						<input type="number" name="buffalo" min="0" id="buffalo" value="0"></label>
+					</div>
+					<div>
+						<label>Enter Both mix Milk Quantity(in Kg): <br/>
+						<input type="number" name="mixMilk" min="0" id="mix-milk" value="0"></label>
+					</div>
+					<button onclick="addData()">Add Data</button>
+				</div>		
+			</div>
+
+			<div id="total" class="navigation">
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>Cow</th>
+							<th>Buffalo</th>
+							<th>Mix</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Total Quantity</td>
+							<td>_</td>
+							<td>_</td>
+							<td>_</td>
+						</tr>
+						<tr>
+							<td>Milk Price</td>
+							<td>_</td>
+							<td>_</td>
+							<td>_</td>
+						</tr>
+						<tr>
+							<td>Total Price</td>
+							<td>_</td>
+							<td>_</td>
+							<td>_</td>
+						</tr>
+					</tbody>
+				</table>
+				<div>
+					<p>This Month total is </p>
+					<button onclick="monthCalculator()">Calculate</button>
+				</div>
+			</div>
+
+			<div id="milk-items" class="navigation">
+				<h3>Milk Products</h3>
+				<p>We also provide best class milk products on special orders.</p>
+				<h5>Products and their respective price</h5>
+				<div class="price-list-container">
+					<div>
+						<img src="Images/paneer.jpg" alt="paneer">
+						<h6>Price: 600/kg</h6>
+					</div>
+					<div>
+						<img src="Images/mawa.jpg" alt="mawa">
+						<h6>Price: 400/kg</h6>
+					</div>
+					<div>
+						<img src="Images/barfi.jpg" alt="barfi">
+						<h6>Price: 150/kg</h6>
+					</div>
+					<div>
+						<img src="Images/yogurt.jpg" alt="yogurt">
+						<h6>Price: 60/kg</h6>
+					</div>
+				</div>
+			</div>
+
+			<div id="order-list" class="navigation">
+				<form target="_blank" id="order-form" action="https://google.com">
+					<div class="input-order">
+						<label>Select your Order:<br>
+							<select name="order" id="order-name">
+								<option>Select the Option</option>
+								<option>Paneer</option>
+								<option>Mawa</option>
+								<option>Barfi</option>
+								<option>Yogurt</option>
+							</select>
+						</label>
+						<label>Please the enter the quantity (in kg):<br>
+							<input type="number" name="quantity" min="0" step="0.25" id="order-quantity">
+						</label>
+						<button onclick="addItem(event)">Add Item</button>
+					</div>
+					<h6>List of your orders.</h6>
+					<ul>
+					</ul>				
+					<input type="submit" name="order" value="Order" id="input-order">
+				</form>
+			</div>
+		</main>
+
+		<footer id="about-us" class="navigation">
+			<p>If you have any issue related to quality or anything. Please feel free to contact us.</p>
+			<div>
+				<i class="fa fa-envelope" aria-hidden="true">hardikbansal@gmail.com</i>
+				<br>
+				<i class="fa fa-phone" aria-hidden="true">7248956658</i>
+			</div>
+			<p>&#169; HardikBansal</p>
+		</footer>		
+	</div>
+	<script type="text/javascript" src="./index.js"></script>
+	<!-- ul#nav>li.item$*4>a{Item $}
+		<ul id="nav">
+    		<li class="item1"><a href="">Item 1</a></li>
+    		<li class="item2"><a href="">Item 2</a></li>
+    		<li class="item3"><a href="">Item 3</a></li>
+    		<li class="item4"><a href="">Item 4</a></li>
+		</ul>
+	 -->
+</body>
+</html>

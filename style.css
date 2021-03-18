@@ -1,0 +1,422 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+  text-decoration: none;
+  color: black;
+}
+
+html {
+	background: #85a;
+	font-size: 70%;
+}
+
+.header-bar{
+	position: fixed;
+	height: 12vh;
+	width: 100%;
+	background: #929;
+	font-size: 1.7rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 1;
+}
+
+.header-bar>img{
+	height: 10vh;
+	max-width: auto;
+	border-radius: 10px;
+	margin-left: 2rem;
+}
+
+.header-bar h1, .header-bar h2{
+	margin: 0 1.3rem;
+}
+
+.header-bar button{
+	margin: 0 1.3rem;
+	width: 6rem;
+	height: 2.5rem;
+	border-radius: 10%;
+}
+
+nav{
+	position: fixed;
+	top: 12vh;
+	height: 88vh;
+	width: 14vw;
+	background: #929;
+	font-size: 2rem;
+	z-index: 2;
+}
+
+:target::before {
+  content: "";
+  display: block;
+  height: 100px; /* fixed header height*/
+  margin: -100px 0 0; /* negative fixed header height */
+}	
+
+ul{
+	list-style-type: none;
+}
+
+nav ul li{
+	border-bottom: 1px solid #000;
+	margin: 1.7rem 0 0 0rem;
+	padding-left: 1rem;
+}
+
+.main-and-footer{
+	position: relative;
+	width: 84vw;
+	top: 12vh;
+	left: 14vw;
+}
+
+#cal-container{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+
+.milk-data{
+	width: 40%;
+	height: 90%;
+	border: 1px solid black;
+	margin: 1.5rem 2rem 3rem 3rem;
+	box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+	text-align: center;
+	font-size: 2rem;
+	text-shadow: 1px 1px 5 0 red;
+}
+
+.milk-data>h3{
+	text-shadow: 1px 1px 5px #f5f;
+	border-bottom: 2px solid black;
+	margin: 3% 0;
+	padding-bottom: 1rem;
+}
+
+.milk-data>p{
+	border-bottom: 2px solid black;
+	margin-bottom: 1.5rem;
+	padding-bottom: 1.2rem;
+}
+
+.milk-data>div{
+	font-weight: 500;
+	padding: 4% 0;
+	border-bottom: 2px solid black;
+}
+
+.milk-data input{
+	width: 40%;
+	height: 2.5rem;
+	margin-top: 0.8rem;
+	padding-left: 0.8rem;
+}
+
+.milk-data button{
+	background: #f9a;
+	width: 10rem;
+	height: 3.5rem;
+	border-radius: 0.8rem;
+	margin-top: 2%;
+	margin-bottom: 10px;
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+.milk-data button:focus{
+	background: #a9f;
+}
+
+.calendar {
+	margin: 1.5rem 2rem 3rem 3rem;
+  width: 55rem;
+  height: 44rem;
+  background-color: #baf59f;
+  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+}
+
+.month {
+  width: 100%;
+  height: 10rem;
+  background-color: #929;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  text-align: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.month i {
+  font-size: 3.5rem;
+  cursor: pointer;
+}
+
+.month p:nth-child(1) {
+  font-size: 3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.month p:nth-child(2) {
+  font-size: 2rem;
+}
+
+.weekdays {
+	background-color: #a59;
+  width: 100%;
+  height: 5rem;
+  padding: 0 0.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.weekdays div {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  width: calc(55.2rem / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.days {
+	color: white;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.2rem;
+}
+
+.days>div:hover:not(.today){
+	background: #a59;
+	border: 1px solid #777;
+}
+
+.days>div {
+  font-size: 1.4rem;
+  margin: 0.3rem;
+  width: calc(50.2rem / 7);
+  height: 5rem;
+  transition: background-color 0.2s;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.days>div>div>p{
+	display: inline;
+	margin: 0 10px 0 10px;
+}
+
+.days i{
+	margin-left: 5px;
+	color: #a00;
+	cursor: pointer;
+}
+
+.days>div>button{
+	background: #a59;
+	font-size: 1rem;
+	font-weight: 500;
+	width: 70%;
+	margin-left: 10px;
+}
+
+.prev-date, .next-date {
+  opacity: 0.5;
+}
+
+.today {
+  background-color: #88a;
+}
+
+#total{
+	font-size: 2.5rem;
+	margin: 2rem 2rem 2rem 3rem;
+	text-align: center;
+}
+
+table{
+	width: 80%;
+	border-collapse: collapse;
+	text-shadow: 0px 1px 2px #a53;
+}
+
+th, td{
+	border: 1px solid black;
+	padding: 2px;
+}
+
+#total p{
+	margin: 2rem 1rem;
+	font-weight: 500;
+	text-align: left;
+}
+
+#total div{
+	display: flex;
+	justify-content: space-around;
+}
+
+#total div button{
+	width: 10rem;
+	height: 3.5rem;
+	margin-top: 1.5rem;
+	font-weight: 500;
+	font-size: 1.5rem;
+	background: linear-gradient(75deg, #a9a, #f9f);
+	-moz-box-shadow:    inset 0 0 10px #333;
+    -webkit-box-shadow: inset 0 0 10px #333;
+    box-shadow:         inset 0 0 10px #333;
+}
+
+#milk-items{
+	font-size: 2rem;
+	text-align: center;
+}
+
+#milk-items>h3{
+	font-weight: 500;
+	font-size: 3rem;
+	margin: 1rem;
+}
+
+#milk-items>h5{
+	font-size: 2.5rem;
+	font-weight: 400;
+	margin: 2rem;
+}
+
+.price-list-container{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 2rem;
+}
+
+.price-list-container div{
+	border: 2px solid #000;
+	border-radius: 5px;
+	background: #a9a;
+	transition: all 0.25s ease;
+}
+
+.price-list-container div:hover{
+	transform: scale(1.1);
+	background: #929;
+}
+
+.price-list-container div h6{
+	font-size: 2rem;
+	margin: 0.8rem 0;
+}
+
+#order-list{
+	font-size: 2.2rem;
+	margin: 2rem 2rem 3rem 3rem;
+}
+
+.input-order{
+	display: flex;
+	justify-content: space-between;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	margin-top: 5rem;
+}
+
+.input-order label{
+	margin: 2rem 0;
+	font-weight: 500;
+}
+
+select{
+	font-size: 1.5rem;
+	width: 100%;
+	height: 25px;
+}
+
+.input-order label input{
+	width: 60%;
+	height: 25px;
+	font-size: 1.5rem;
+	padding-left: 1rem;
+}
+
+.input-order button{
+	background: #929;
+	width: 100px;
+	height: 25px;
+	align-self: center;
+	border: 1px solid black;
+	border-radius: 5%;
+	font-weight: 600;
+	margin-right: 1rem;
+}
+
+#order-form li{
+	display: flex;
+	justify-content: space-around;
+}
+
+li button {
+    background: #929;
+    border-radius: 1rem;
+    font-weight: 500;
+    width: 80px;
+    height: 2.5rem;
+    color: white;
+    margin-right: 5rem;
+}
+
+#order-form h6{
+	text-align: center;
+	margin-top: 2rem;
+	font-size: 2rem;
+	text-decoration: underline;
+}
+
+#order-form ul{
+	list-style: square inside;
+	margin: 2rem 0 1rem 2rem;
+}
+
+#input-order{
+	display: block;
+	background: #a99;
+	width: 100px;
+	height: 25px;
+	border: 1px solid black;
+	border-radius: 5px;
+	font-size: 1.5rem;
+	font-weight: 500;
+	transition: all 0.4s ease;
+	-moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 10px #000000;
+    margin: auto;
+}
+
+#input-order:hover{
+	background: #929;
+	transform: scale(1.2);
+}
+
+#about-us{
+	line-height: 22px;
+	border-top: 2px solid black;
+	font-size: 1.5rem;
+	margin: 1rem 1rem 1rem 3rem;
+	padding-top: 1rem;
+}
